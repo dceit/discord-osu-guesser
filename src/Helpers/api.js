@@ -36,6 +36,38 @@ export function getUserByQuery(
 	});
 }
 
+export function getUserByBanchoID(
+	banchoID,
+	limit=1,
+	endpoint='/api/users/'
+	) {
+
+	if(banchoID == null) {
+		return null;
+	}
+
+	return new Promise(async (resolve, reject) => {
+		await axios.get(API_BASE_DOMAIN + endpoint + banchoID,
+	    	{
+	    		headers: { 'X-API-Key': API_TOKEN, },
+	    	})
+	        .then(response => {
+	        	if(!response.data.success)
+	        		return reject('ERROR: API returned failed success. Aborting.')
+
+	        	if(!response.data.data)
+	        		return reject('ERROR: Data not returning from endpoint. Aborting.')
+
+	        	if(response.data.data.length == 0)
+	        		return reject('ERROR: No users found with this query. Aborting.')
+
+	        	return resolve(response.data.data);
+	        })
+	        .catch(error => reject(`ERROR: Something went wrong. Is the website online?`));
+	});
+}
+
+
 export function getLeaderBoardData(
 		mode, 
 		variant,

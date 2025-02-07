@@ -18,9 +18,7 @@ export const commandBase = {
   cooldown: 5000,
   ownerOnly: false,
 
-  async prefixRun(client, message, args) {
-    message.reply("fuck")
-  },
+  async prefixRun(client, message, args) { },
 
   async slashRun(client, interaction) {
     const query = interaction.options.getString('username');

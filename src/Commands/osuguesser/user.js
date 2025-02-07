@@ -4,7 +4,7 @@ import { getUserByQuery, getUserByBanchoID } from '../../Helpers/api.js';
 
 export const commandBase = {
   prefixData: {
-    name: "user",
+    name: "",
     aliases: [],
   },
   slashData: new SlashCommandBuilder()

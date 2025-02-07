@@ -4,7 +4,7 @@ import { getLeaderBoardData } from '../../Helpers/api.js';
 
 export const commandBase = {
   prefixData: {
-    name: "leaderboard",
+    name: "",
     aliases: [],
   },
   slashData: new SlashCommandBuilder()

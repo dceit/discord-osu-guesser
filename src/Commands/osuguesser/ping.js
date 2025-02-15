@@ -8,9 +8,7 @@ export const commandBase = {
     name: "ping",
     aliases: ["pong"],
   },
-  slashData: new SlashCommandBuilder()
-    .setName("ping")
-    .setDescription("Pong!"),
+  slashData: new SlashCommandBuilder().setName("ping").setDescription("Pong!"),
   cooldown: 5000,
   ownerOnly: false,
   async prefixRun(client, message, args) {
